@@ -127,7 +127,7 @@ const changePhoneNumbers=()=>{
 
 const sendData=async()=>{
     let pn;
-    let phoneNumbersString = "'050555555111','050555555101','0522695041',";
+    let phoneNumbersString = "'0522695041',";
     // we can use this if and map statements to send
     if(fl.length>0){
         fl.map((c)=>{

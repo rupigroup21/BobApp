@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { View, Text,StyleSheet,AsyncStorage,ScrollView,Button, ShadowPropTypesIOS, ActivityIndicator } from 'react-native';
+import { View, Text,StyleSheet,AsyncStorage,ScrollView,Button, ShadowPropTypesIOS, ActivityIndicator, Alert } from 'react-native';
 import { ActionButton,Card } from 'react-native-material-ui';
 import { CheckBox } from 'react-native-elements';
 import * as Contacts from 'expo-contacts';
@@ -21,7 +21,7 @@ export default function ContactList(props,{navigation}){
             if (data.length > 0) {
               let con;
               let pn;
-              conL=[];
+              conL=[{name:'A',phone:'0501110000',id:'1',email:'a1@email.com',checked:false,inGroupCheck:false},{name:'B',phone:'0502220000',id:'2',email:'b2@email.com',checked:false,inGroupCheck:false},{name:'C',phone:'0503330000',id:'3',email:'c3@email.com',checked:false,inGroupCheck:false},{name:'D',phone:'0504440000',id:'4',email:'D4@email.com',checked:false,inGroupCheck:false},{name:'E',phone:'0505550000',id:'5',email:'E5@email.com',checked:false,inGroupCheck:false}];
               data.map((c)=>{
                 console.log(c);
                 if(c.phoneNumbers){
@@ -65,8 +65,9 @@ async function LaunchContacts(ContactList){
 }
 
 function reLaunchContacts(usersList,contactsList){
-  let conList=[];
+  let conList=[{name:'A',phone:'0501110000',id:'1',email:'a1@email.com',checked:false,inGroupCheck:false},{name:'B',phone:'0502220000',id:'2',email:'b2@email.com',checked:false,inGroupCheck:false},{name:'C',phone:'0503330000',id:'3',email:'c3@email.com',checked:false,inGroupCheck:false},{name:'D',phone:'0504440000',id:'4',email:'D4@email.com',checked:false,inGroupCheck:false},{name:'E',phone:'0505550000',id:'5',email:'E5@email.com',checked:false,inGroupCheck:false}];
   let cont;
+  console.log('here is the data i want: ',conList)
   usersList.map((u)=>{
     contactsList.map((c)=>{
       if(u.Phone===c.phone){
